@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f5139fbac376c75419df7256f2e868ed
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 134023
+  packageName: Ultimate 2D Weapons - Warfare Collection (7 Weapons)
+  packageVersion: 1.0
+  assetPath: Assets/DANKIE/Ultimate2DWeaponPacks/Ultimate2DModernWeapons/Volume1
+    - Warfare Weapons/Scenes/Scene-Ultimate2DWeapons-WarfareEdition.unity
+  uploadId: 280747
