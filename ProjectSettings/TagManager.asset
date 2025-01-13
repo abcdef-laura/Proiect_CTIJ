@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - TutorialRequirement
+  - enemy
   layers:
   - Default
   - TransparentFX

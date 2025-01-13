@@ -15,11 +15,16 @@ namespace Platformer.Mechanics
         public PatrolPath path;
         public AudioClip ouch;
 
+        public Vector2 velocity;
+
+
         internal PatrolPath.Mover mover;
         internal AnimationController control;
         internal Collider2D _collider;
         internal AudioSource _audio;
         SpriteRenderer spriteRenderer;
+
+        public int enemyHP = 0;
 
         public Bounds Bounds => _collider.bounds;
 
@@ -50,6 +55,27 @@ namespace Platformer.Mechanics
                 control.move.x = Mathf.Clamp(mover.Position.x - transform.position.x, -1, 1);
             }
         }
+
+
+        public void Bounce(float value)
+        {
+            velocity.y = value;
+        }
+        public void TakeDamage(int damage)
+        {
+            enemyHP -= damage;
+            if (enemyHP > 0)
+            {
+                Bounce(2); 
+            }
+            else
+            {
+                Schedule<EnemyDeath>().enemy = this;
+                Destroy(gameObject);
+            }
+
+        }
+
 
     }
 }

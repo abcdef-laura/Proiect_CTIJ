@@ -1,5 +1,10 @@
 using System;
+using Platformer.Mechanics;
 using UnityEngine;
+using Platformer.Core;
+using Platformer.Model;
+using static Platformer.Core.Simulation;
+
 
 public class PlayerAimWeapon : MonoBehaviour
 {
@@ -22,6 +27,9 @@ public class PlayerAimWeapon : MonoBehaviour
     private Transform aimGunEndPointTransform;
     private Inventory.Slot selectedItem;
     private SpriteRenderer spriteRenderer;
+
+    public EnemyController enemy;
+
 
     
     /*void Start()
@@ -119,6 +127,9 @@ public class PlayerAimWeapon : MonoBehaviour
         }
     }
 
+
+    
+
     void SpawnBullet(Vector3 position, Vector3 direction, GameObject bulletPrefab)
     {
         GameObject bullet = Instantiate(bulletPrefab, position, Quaternion.identity);
@@ -131,6 +142,11 @@ public class PlayerAimWeapon : MonoBehaviour
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
+        Bullet bulletComponent = bullet.GetComponent<Bullet>();
+        if (bulletComponent != null)
+        {
+            bulletComponent.damageAmount = 1;
+        }
 
         Destroy(bullet, bulletLifeTime);
     }

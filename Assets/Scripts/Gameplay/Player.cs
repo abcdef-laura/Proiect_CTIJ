@@ -1,3 +1,4 @@
+using Platformer.Mechanics;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -7,5 +8,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         inventory = new Inventory(18);
+        HealthManager.health=3;
+        PlayerManager.isGameOver=false;
     }
 }

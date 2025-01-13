@@ -1,6 +1,9 @@
 using Platformer.Core;
 using Platformer.Mechanics;
 using Platformer.Model;
+using UnityEngine;
+using static Platformer.Core.Simulation;
+
 
 namespace Platformer.Gameplay
 {
@@ -16,7 +19,15 @@ namespace Platformer.Gameplay
 
         public override void Execute()
         {
-            Simulation.Schedule<PlayerDeath>(0);
+                HealthManager.health--;
+                Simulation.Schedule<PlayerSpawn>(2);
+
+                if(HealthManager.health <=0 )
+                {
+                    PlayerManager.isGameOver=true;
+                    Schedule<PlayerDeath>();
+
+                }
         }
     }
 }

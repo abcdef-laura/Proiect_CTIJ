@@ -46,7 +46,16 @@ namespace Platformer.Gameplay
             }
             else
             {
-                Schedule<PlayerDeath>();
+                HealthManager.health--;
+                player.animator.SetTrigger("hurt");
+
+
+                if(HealthManager.health <=0 )
+                {
+                    PlayerManager.isGameOver=true;
+                    Schedule<PlayerDeath>();
+
+                }
             }
         }
     }
